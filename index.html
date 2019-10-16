@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>unit-ui</title>
+    <style>
+        body{
+            margin: 0;
+            font-size: 14px;
+        }
+        :root{
+            --primary-color:#409eff;
+        }
+    </style>
+    <style>
+        .u-button{
+            background-color: var(--primary-color);
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div id='app'>
+        <u-button></u-button>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.0"></script>
+    <script src="./button.js"></script>
+    <script>
+        new Vue({
+            el:'#app',
+        })
+    </script>
+</body>
+</html>
