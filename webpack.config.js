@@ -19,6 +19,7 @@ module.exports={
     devServer: {
         historyApiFallback: true,//热服务，实时更新页面
     },
+    stats: { children: false },
     resolve: { alias: { 'vue': 'vue/dist/vue.js' } },
     module:{
         rules:[{
