@@ -1,7 +1,10 @@
+import Vue from 'vue'
 import VueRouter from "vue-router";
-import buttons from '@/views/buttons/buttons.vue' 
+import buttons from '../views/buttons/buttons.vue' 
 
-export const routes=new VueRouter({
+Vue.use(VueRouter)
+
+export default new VueRouter({
     routes:[
         {
             path:'/',
