@@ -1,7 +1,9 @@
 body{
     margin: 0;
+    font-size: 14px;
 }
 
 :root{
-    --theme-color:#409eff
+    --theme-color:#409eff;
+    --border-radius: 4px;
 }

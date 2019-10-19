@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import VueRouter from "vue-router";
-import buttons from '../views/buttons/buttons.vue' 
+import uButton from '../views/buttons/ubutton.vue' 
 
 Vue.use(VueRouter)
 
@@ -8,12 +8,12 @@ export default new VueRouter({
     routes:[
         {
             path:'/',
-            redirect:'/buttons'
+            redirect:'/button'
         },
         {
-            path:'/buttons',
-            name:'buttons',
-            component:buttons
+            path:'/button',
+            name:'button',
+            component:uButton
         }
     ]
 })

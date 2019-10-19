@@ -8,3 +8,6 @@ export default {
     name:'App',
 }
 </script>
+<style lang="scss" scoped>
+@import url(./assets/css/index.css);
+</style>
