@@ -4,6 +4,17 @@ body{
 }
 
 :root{
+    --default-color:#606266;
+    --default-focus:#ecf5ff;
     --theme-color:#409eff;
+    --theme-focus:#66b1ff;
+    --success-color:#67c23a;
+    --success-focus:#85ce61;
+    --info-color:#909399;
+    --info-focus:#a6a9ad;
+    --warning-color:#e6a23c;
+    --warning-focus:#ebb563;
+    --danger-color:#f56c6c;
+    --danger-focus:#f78989;
     --border-radius: 4px;
 }
