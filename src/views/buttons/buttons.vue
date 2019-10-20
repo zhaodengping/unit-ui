@@ -1,5 +1,6 @@
 <template>
     <button :type="activeType" :class="[type?'u-button-'+type:'','u-button',{'is-plain':plain,'is-cirlce':circle}]">
+        <i :class="[icon?icon:'','icon']" v-if='icon'></i>
         <slot></slot>
     </button>
 </template>
@@ -19,7 +20,10 @@ export default {
         },
         circle:{
             type:Boolean
-        },        
+        },      
+        icon:{
+            type:String,
+        }  
     },
 }
 </script>
@@ -52,6 +56,7 @@ export default {
 .u-button-default.is-cirlce{
     border-radius: 20px;
 }
+
 .u-button-primary{
     background-color: var(--theme-color);
     color: #ffffff;

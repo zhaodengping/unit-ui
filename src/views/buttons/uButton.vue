@@ -21,6 +21,8 @@
         <u-button type='info' circle>信息按钮</u-button>
         <u-button type='warning' circle>警告按钮</u-button>
         <u-button type='danger' circle>危险按钮</u-button>
+        <h2>图标按钮</h2>
+        <u-button icon='iconfont u-sousuo'></u-button>
     </div>
 </template>
 <script>
