@@ -1,0 +1,21 @@
+@mixin button($borderColor,$color,$bgColor,$bgColorHover,$borderColorHover,$colorHover) {
+    border:1px solid $borderColor;
+    color: $color;
+    background-color: $bgColor;
+    &:hover,&:focus{
+        background-color: $bgColorHover;
+        border-color: $borderColorHover;
+        color: $colorHover
+    };
+}
+
+@mixin buttonPlain($borderColor,$color,$bgColor,$bgColorHover,$borderColorHover,$colorHover) {
+    border:1px solid $borderColor;
+    background-color: $bgColor;
+    color: $color;
+    &:hover,&:focus{
+        border-color: $borderColorHover;
+        background-color: $bgColorHover;
+        color: $colorHover;
+    }
+}

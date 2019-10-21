@@ -28,6 +28,9 @@
         <u-button type='info' icon='iconfont u-youjian'></u-button>
         <u-button type='warning' icon='iconfont u-collection'></u-button>
         <u-button type='danger' icon='iconfont u-icon-test'></u-button>
+        <h2>禁用按钮</h2>
+        <u-button disabled>禁用按钮</u-button>
+        <button disabled>hh</button>
     </div>
 </template>
 <script>

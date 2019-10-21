@@ -1,5 +1,5 @@
 <template>
-    <button :type="activeType" :class="[type?'u-button-'+type:'','u-button',{'is-plain':plain,'is-cirlce':circle}]">
+    <button type="button" :class="[type?'u-button-'+type:'','u-button',{'is-plain':plain,'is-cirlce':circle,'is-disabled':disabled}]" disabled>
         <i :class="[icon?icon:'','icon']" v-if='icon'></i>
         <slot></slot>
     </button>
@@ -11,23 +11,26 @@ export default {
             type:String,
             default:'default'
         },
-        activeType:{
-            type:String,
-            default:'button'
-        },
         plain:{
             type:Boolean,
         },
         circle:{
             type:Boolean
-        },      
+        },
         icon:{
             type:String,
-        }  
+        },
+        disabled:{
+            type:String,
+        }
     },
+    created(){
+        console.log(this.disabled)
+    }
 }
 </script>
 <style lang="scss" scoped>
+@import '../../assets/css/button.scss';
 .u-button{
     border-width:0;
     padding: 12px 20px;
@@ -38,126 +41,55 @@ export default {
     line-height: 1;
 }
 .u-button-default{
-    border:1px solid #dcdfe6;
-    color: var(--default-color);
-    &:hover,&:focus{
-        background-color: var(--default-focus);
-        border-color: var(--theme-focus);
-        color: var(--theme-color)
-    };
+    @include button(#dcdfe6,var(--default-color),#fff,var(--default-focus),var(--theme-focus),var(--theme-color));
 }
 .u-button-default.is-plain{
-    &:hover,&:focus{
-        color: var(--theme-color);
-        border-color: var(--theme-color);
-        background-color: #fff;
-    }
+    @include buttonPlain(var(--default-color),var(--default-color),#fff,#fff,var(--theme-color),var(--theme-color)); 
 }
 .u-button-default.is-cirlce{
     border-radius: 20px;
 }
-
 .u-button-primary{
-    background-color: var(--theme-color);
-    color: #ffffff;
-    &:hover,&:focus{
-        background-color: var(--theme-focus);
-        border-color: var(--theme-focus);
-    }
+    @include button(var(--theme-color),#fff,var(--theme-color),var(--theme-focus),var(--theme-focus),#fff);
 }
 .u-button-primary.is-plain{
-    border:1px solid var(--theme-focus);
-    background-color: var(--default-focus);
-    color: var(--theme-color);
-    &:hover,&:focus{
-        border-color: var(--theme-focus);
-        background-color: var(--theme-focus);
-        color: #fff;
-    }
+    @include buttonPlain(var(--theme-focus),var(--theme-color),var(--default-focus),var(--theme-focus),var(--theme-focus),#fff);
 }
 .u-button-primary.is-cirlce{
     border-radius: 20px;
 }
 .u-button-success{
-    background-color: var(--success-color);
-    color: #fff;
-    &:hover,&:focus{
-        background-color: var(--success-focus);
-        border-color: var(--success-focus);
-    }
+    @include button(var(--success-color),#fff,var(--success-color),var(--success-focus),var(--success-focus),#fff);
 }
 .u-button-success.is-plain{
-    background-color: #f0f9eb;
-    color: var(--success-color);
-    border:1px solid var(--success-color);
-    &:hover,&:focus{
-        background-color: var(--success-color);
-        border-color: var(--success-focus);
-        color: #fff;
-    }
+    @include buttonPlain(var(--success-color),var(--success-color),#f0f9eb,var(--success-color),var(--success-focus),#fff);
 }
 .u-button-success.is-cirlce{
     border-radius: 20px;
 }
 .u-button-info{
-    background-color: var(--info-color);
-    color: #fff;
-    &:hover,&:focus{
-        background-color: var(--info-focus);
-        border-color: var(--info-focus);
-    }
+    @include button(var(--info-color),#fff,var(--info-color),var(--info-focus),var(--info-focus),#fff); 
 }
 .u-button-info.is-plain{
-    background-color: #f0f9eb;
-    color: var(--success-color);
-    border:1px solid var(--success-color);
-    &:hover,&:focus{
-        background-color: var(--success-color);
-        border-color: var(--success-focus);
-        color: #fff;
-    }
+    @include buttonPlain(#d3d4d6,var(--info-color),#f4f4f5,var(--info-color),var(--info-focus),#fff);
 }
 .u-button-info.is-cirlce{
     border-radius: 20px;
 }
 .u-button-warning{
-    background-color: var(--warning-color);
-    color: #fff;
-    &:hover,&:focus{
-        background-color: var(--warning-focus);
-        border-color: var(--warning-focus);
-    }
+    @include button(var(--warning-color),#fff,var(--warning-color),var(--warning-focus),var(--warning-focus),#fff); 
 }
 .u-button-warning.is-plain{
-    background-color: #fdf6ec;
-    color: var(--warning-color);
-    border:1px solid var(--warning-color);
-    &:hover,&:focus{
-        background-color: var(--warning-color);
-        border-color: var(--warning-focus);
-        color: #fff;
-    }
+    @include buttonPlain(var(--warning-color),var(--warning-color),#fdf6ec,var(--warning-color),var(--warning-focus),#fff); 
 }
 .u-button-warning.is-cirlce{
     border-radius: 20px;
 }
 .u-button-danger{
-    background-color: var(--danger-color);
-    color: #fff;
-    &:hover,&:focus{
-        background-color: var(--danger-focus);
-        border-color: var(--danger-focus);
-    }
+    @include button( var(--danger-color),#fff, var(--danger-color),var(--danger-focus),var(--danger-focus),#fff); 
 }
 .u-button-danger.is-plain{
-    background-color: #fef0f0;
-    color: var(--danger-color);
-    border:1px solid var(--danger-color);
-    &:hover,&:focus{
-        background-color: var(--danger-color);
-        border-color: var(--danger-focus);
-        color: #fff;
-    }
+    @include buttonPlain(var(--danger-color),var(--danger-color), #fef0f0,var(--danger-color),var(--danger-focus),#fff);  
 }
 .u-button-danger.is-cirlce{
     border-radius: 20px;
