@@ -23,6 +23,11 @@
         <u-button type='danger' circle>危险按钮</u-button>
         <h2>图标按钮</h2>
         <u-button icon='iconfont u-sousuo'></u-button>
+        <u-button type='primary' icon='iconfont u-bianji'></u-button>
+        <u-button type='success' icon='iconfont u-chenggong'></u-button>
+        <u-button type='info' icon='iconfont u-youjian'></u-button>
+        <u-button type='warning' icon='iconfont u-collection'></u-button>
+        <u-button type='danger' icon='iconfont u-icon-test'></u-button>
     </div>
 </template>
 <script>
