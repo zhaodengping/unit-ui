@@ -30,7 +30,19 @@
         <u-button type='danger' icon='iconfont u-icon-test'></u-button>
         <h2>禁用按钮</h2>
         <u-button disabled>禁用按钮</u-button>
-        <button disabled>hh</button>
+        <u-button type='primary' disabled>主要按钮</u-button>
+        <u-button type='success' disabled>成功按钮</u-button>
+        <u-button type='info' disabled>信息按钮</u-button>
+        <u-button type='warning' disabled>警告按钮</u-button>
+        <u-button type='danger' disabled>危险按钮</u-button>
+        <h2>文字按钮</h2>
+        <u-button type="text">文字按钮</u-button>
+        <u-button type="text" disabled>文字按钮</u-button>
+        <h2>图标按钮</h2>
+        <u-button type="primary" icon='iconfont u-upload'>上传</u-button>
+        <u-button type="primary" icon='iconfont u-xiazai'>下载</u-button>
+        <h2>按钮组</h2>
+        
     </div>
 </template>
 <script>
