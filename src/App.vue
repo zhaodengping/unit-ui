@@ -3,7 +3,9 @@
         <div class="home-left">
             <left></left>
         </div>
-       <router-view></router-view>
+        <div class="home-right">
+            <router-view></router-view>
+        </div>
     </div>
 </template>
 <script>
@@ -23,6 +25,11 @@ export default {
         margin-right: 60px;
         border-right: 1px solid #f2f2f2;
         width: 200px;
+        min-height: 100vh;
+        height: auto;
+    };
+    .home-right{
+        height: auto;
     }
 }
 

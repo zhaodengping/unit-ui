@@ -1,6 +1,13 @@
 <template>
-    <button type="button" :class="[type?'u-button-'+type:'','u-button',{'is-plain':plain,'is-cirlce':circle,'is-disabled':disabled}]" :disabled='[disabled?true:false]'>
-        <i :class="[icon?icon:'','icon']" v-if='icon'></i>
+    <button type="button" :class="[type?'u-button-'+type:'',size?'u-button-size-'+size:'','u-button',{'is-plain':plain,'is-cirlce':circle,'is-disabled':disabled}]" :disabled='[disabled||loading?true:false]'>
+        <div v-if='loading' class="circle">
+            <div class="loading"></div>
+            <div class="loading"></div>
+            <div class="loading"></div>
+            <div class="loading"></div>
+            <div class="loading"></div>
+        </div>
+        <i :class="[icon?icon:'']" v-if='icon'></i>
         <slot></slot>
     </button>
 </template>
@@ -22,6 +29,16 @@ export default {
         },
         disabled:{
             type:Boolean,
+        },
+        loading:{
+            type:Boolean
+        },
+        loadingType:{
+            type:String,
+        },
+        size:{
+            type:String,
+            default:'default'
         }
     },
 }
@@ -36,7 +53,8 @@ export default {
     cursor: pointer;
     font-weight: 500;
     line-height: 1;
-}
+} 
+
 //default
 .u-button-default{
     @include button(#dcdfe6,var(--default-color),#fff,var(--default-focus),var(--theme-focus),var(--theme-color));
@@ -51,6 +69,56 @@ export default {
     @include buttonDisabled(#c0c4cc,#fff,#ebeef5);
     cursor:not-allowed;
 }
+@keyframes loadingCircle {
+    0%{
+        transform: scale(0.8);
+        opacity: 0.8;
+    }
+    50%{
+        transform: scale(0.4);
+        opacity: 0.4;
+    }
+}
+.circle{
+    position: relative;
+    width: 40px;
+    height: 16px;
+    .loading{
+        position: absolute;
+        right: 0;
+        width: 6px;
+        height: 6px;
+        background-color: var(--theme-color);
+        border-radius: 10px; 
+        animation: loadingCircle 1s ease infinite;
+        &:first-child{
+            top: -5px;
+            right: 17px;
+            animation-delay: .1s
+        }
+        &:nth-child(2){
+            right: 5px;
+            top: 5px;
+            animation-delay: .2s
+        }
+        &:nth-child(3){
+            right: 10px;
+            top: 17px;
+            animation-delay: .3s
+        }
+        &:nth-child(4){
+            right: 25px;
+            top: 17px;
+            animation-delay: .4s
+        }
+        &:nth-child(5){
+            right: 30px;
+            top: 5px;
+            animation-delay: .5s
+        }
+    }
+}
+
 
 
 //primary
@@ -128,6 +196,7 @@ export default {
     cursor:not-allowed;
 }
 
+//文字按钮
 .u-button-text{
     padding: 12px 0;
     border-color: transparent;
@@ -137,4 +206,21 @@ export default {
     cursor:not-allowed;
     color: var(--default-color)
 }
+
+//不同尺寸
+.u-button-size-medium{
+    padding: 10px 20px;
+    font-size: 14px;
+}
+.u-button-size-small{
+    padding: 9px 15px;
+    font-size: 12px;
+}
+.u-button-size-mini{
+    padding: 7px 15px;
+    font-size: 12px;
+}
+
+
+
 </style>

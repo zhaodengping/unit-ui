@@ -42,17 +42,29 @@
         <u-button type="primary" icon='iconfont u-upload'>上传</u-button>
         <u-button type="primary" icon='iconfont u-xiazai'>下载</u-button>
         <h2>按钮组</h2>
-        
+        <u-button-group>
+            <u-button>上一页</u-button>
+            <u-button>下一页</u-button>
+        </u-button-group>
+        <h2>加载中</h2>
+        <u-button :loading='true'></u-button>
+        <h2>不同尺寸</h2>
+        <u-button>默认按钮</u-button>
+        <u-button size='medium'>中等按钮</u-button>
+        <u-button size="small">小型按钮</u-button>
+        <u-button size="mini">超小按钮</u-button>
     </div>
 </template>
 <script>
-import uButton from './buttons.vue'
+import uButton from '../views/buttons/buttons.vue'
+import uButtonGroup from '../views/buttons/button-group.vue'
 export default {
     data(){
         return{}
     },
     components:{
-        uButton
+        uButton,
+        uButtonGroup
     }
 }
 </script>

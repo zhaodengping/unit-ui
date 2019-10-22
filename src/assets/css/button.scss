@@ -25,3 +25,8 @@
     background-color: $bgColor;
     border-color: $borderColor;
 }
+
+@mixin buttonLoading($bgColor,$color) {
+    background-color: $bgColor;
+    color: $color;
+}
