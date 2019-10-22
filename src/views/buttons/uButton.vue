@@ -42,17 +42,24 @@
         <u-button type="primary" icon='iconfont u-upload'>上传</u-button>
         <u-button type="primary" icon='iconfont u-xiazai'>下载</u-button>
         <h2>按钮组</h2>
-        
+        <u-button-group>
+            <u-button>上一页</u-button>
+            <u-button>下一页</u-button>
+        </u-button-group>
+        <h2>加载中</h2>
+        <u-button :loading='true'></u-button>
     </div>
 </template>
 <script>
 import uButton from './buttons.vue'
+import uButtonGroup from './button-group.vue'
 export default {
     data(){
         return{}
     },
     components:{
-        uButton
+        uButton,
+        uButtonGroup
     }
 }
 </script>

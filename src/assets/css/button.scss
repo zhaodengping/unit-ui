@@ -25,3 +25,13 @@
     background-color: $bgColor;
     border-color: $borderColor;
 }
+
+@mixin buttonLoading($bgColor,$color) {
+    background-color: $bgColor;
+    color: $color;
+}
+
+//转圈圈
+@mixin animation() {
+    
+}
