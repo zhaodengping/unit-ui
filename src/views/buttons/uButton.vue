@@ -48,6 +48,11 @@
         </u-button-group>
         <h2>加载中</h2>
         <u-button :loading='true'></u-button>
+        <h2>不同尺寸</h2>
+        <u-button>默认按钮</u-button>
+        <u-button size='medium'>中等按钮</u-button>
+        <u-button size="small">小型按钮</u-button>
+        <u-button size="mini">超小按钮</u-button>
     </div>
 </template>
 <script>

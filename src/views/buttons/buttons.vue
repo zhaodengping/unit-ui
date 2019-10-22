@@ -1,5 +1,5 @@
 <template>
-    <button type="button" :class="[type?'u-button-'+type:'','u-button',{'is-plain':plain,'is-cirlce':circle,'is-disabled':disabled}]" :disabled='[disabled||loading?true:false]'>
+    <button type="button" :class="[type?'u-button-'+type:'',size?'u-button-size-'+size:'','u-button',{'is-plain':plain,'is-cirlce':circle,'is-disabled':disabled}]" :disabled='[disabled||loading?true:false]'>
         <div v-if='loading' class="circle">
             <div class="loading"></div>
             <div class="loading"></div>
@@ -35,6 +35,10 @@ export default {
         },
         loadingType:{
             type:String,
+        },
+        size:{
+            type:String,
+            default:'default'
         }
     },
 }
@@ -201,6 +205,20 @@ export default {
 .u-button-text.is-disabled{
     cursor:not-allowed;
     color: var(--default-color)
+}
+
+//不同尺寸
+.u-button-size-medium{
+    padding: 10px 20px;
+    font-size: 14px;
+}
+.u-button-size-small{
+    padding: 9px 15px;
+    font-size: 12px;
+}
+.u-button-size-mini{
+    padding: 7px 15px;
+    font-size: 12px;
 }
 
 
