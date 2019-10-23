@@ -25,11 +25,11 @@ export default {
         margin-right: 60px;
         border-right: 1px solid #f2f2f2;
         width: 200px;
-        min-height: 100vh;
+        min-height: calc(100vh - 60px);
         height: auto;
     };
     .home-right{
-        height: auto;
+        width: 100%;
     }
 }
 
