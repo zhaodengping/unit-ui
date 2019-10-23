@@ -1,5 +1,5 @@
 <template>
-    <div class="grid" :style="{gridTemplateColumns:columnWidth}">
+    <div class="grid" :style="'gridTemplateColumns:repeat('+columnCount+',+'+columnWidth+'%'+');gridColumnGap:'+gutter/10+'%'">
         <slot></slot>
     </div>
 </template>
@@ -8,11 +8,21 @@ export default {
     props:{
         span:{
             type:Number,
+        },
+        gutter:{
+            type:Number,
+            default:0
         }
     },
     computed:{
+        width:function(){
+            return 1/24 * this.span
+        },
+        columnCount:function(){
+            return 1/this.width
+        },
         columnWidth:function(){
-            return 100/24 * this.span
+            return (100-this.gutter/10*(this.columnCount-1))/24*this.span
         }
     }
 }
@@ -20,7 +30,5 @@ export default {
 <style lang="scss" scoped>
 .grid{
     display: grid;
-    
-    width: 100%;
 }
 </style>
