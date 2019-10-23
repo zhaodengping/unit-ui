@@ -1,7 +1,8 @@
 <template>
     <div class="left">
         <h2>组件</h2>
-        <div @click='linkTo("layout")'>Layout布局</div>
+        <div @click='linkTo("layout")'>Layout布局(grid)</div>
+        <div @click='linkTo("row")'>Layout布局(row)</div>
         <div @click='linkTo("button")'>button按钮</div>
     </div>
 </template>
@@ -22,6 +23,9 @@ export default {
                 case 'layout':{
                     this.$router.push('/layout');
                     break;
+                };
+                case 'row':{
+                    this.$router.push('/row')
                 };
                 default:
                     break;
