@@ -1,5 +1,6 @@
 <template>
     <div>
+        <h1>grid版</h1>
         <h2>基础布局</h2>
         <u-grid :span='24'>
             <div class="number1">1</div>
@@ -25,7 +26,7 @@
 import uGrid from '../views/layout/layout.vue'
 export default {
     components:{
-        uGrid
+        uGrid,
     }
 }
 </script>
