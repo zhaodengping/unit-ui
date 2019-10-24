@@ -42,18 +42,6 @@
                 <div class="number7">1</div>
             </u-col>
         </u-row>
-        <h2>分栏偏移</h2>
-        <u-row :gutter="20">
-            <u-col :span='2'>
-                <div class="number5">1</div>
-            </u-col>
-            <u-col :span='6' :offset="2">
-                <div class="number6">1</div>
-            </u-col>
-            <u-col :span='10'>
-                <div class="number7">1</div>
-            </u-col>
-        </u-row>
     </div>
 </template>
 <script>

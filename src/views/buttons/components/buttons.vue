@@ -45,7 +45,7 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-@import '../../assets/css/button.scss';
+@import '../../../assets/css/button.scss';
 .u-button{
     border-width:0;
     padding: 12px 20px;

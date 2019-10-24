@@ -5,6 +5,7 @@ import bus from './assets/js/bus.js'
 
 Vue.prototype.$bus=bus
 new Vue({
+    
     el:'#app',
     router,
     components:{App},
