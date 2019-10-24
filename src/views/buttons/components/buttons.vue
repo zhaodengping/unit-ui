@@ -13,6 +13,7 @@
 </template>
 <script>
 export default {
+    name:"uButton",
     props:{
         type:{
             type:String,

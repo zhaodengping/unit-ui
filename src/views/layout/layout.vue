@@ -1,5 +1,5 @@
 <template>
-    <div class="grid" :style="'gridTemplateColumns:repeat('+columnCount+',+'+columnWidth+'%'+');gridColumnGap:'+gutter/10+'%'">
+    <div class="grid" :style="'gridTemplateColumns:repeat('+columnCount+',+'+columnWidth+'%'+');gridColumnGap:'+gutter/10+'em'">
         <slot></slot>
     </div>
 </template>

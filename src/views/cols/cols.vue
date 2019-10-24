@@ -1,9 +1,41 @@
 <template>
-    <div>
+    <div :style="{'width':colWidth*100+'%',marginLeft:gutter+'%'}" class="col">
         <slot></slot>
     </div>
 </template>
 <script>
 export default {
+    props:{
+        span:{
+            type:Number,
+            default:24
+        },
+        offset:{
+            type:Number,
+            default:0
+        }
+    },
+    data(){
+        return{
+            colWidth:0,
+            gutter:0,
+            colCount:0,
+            offsetWidth:0,
+        }
+    },
+    created(){
+        this.colCount=24/this.span;
+        if(this.$parent.gutter!==0){
+            this.colWidth=(1-(this.$parent.gutter/1000)*(this.colCount-1))/24*this.span
+            this.gutter=(this.$parent.gutter/10)
+        }else{
+            this.colWidth=(1/24)*this.span
+        }
+    }
 }
 </script>
+<style lang="scss" scoped>
+.col{
+    float:left;
+}
+</style>
