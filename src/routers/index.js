@@ -3,6 +3,7 @@ import VueRouter from "vue-router";
 import uButton from '../uses/uButton.vue' 
 import uLayout from '../uses/uLayout.vue'
 import uRow from '../uses/uRow.vue'
+import uRadio from '../uses/uRadio.vue'
 Vue.use(VueRouter)
 
 export default new VueRouter({
@@ -26,6 +27,11 @@ export default new VueRouter({
             path:'/row',
             name:'row',
             component:uRow
+        },
+        {
+            path:'/radio',
+            name:'radio',
+            component:uRadio
         }
     ]
 })

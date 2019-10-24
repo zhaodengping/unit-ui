@@ -4,6 +4,8 @@
         <div @click='linkTo("layout")'>Layout布局(grid)</div>
         <div @click='linkTo("row")'>Layout布局(row)</div>
         <div @click='linkTo("button")'>button按钮</div>
+        <h2>Form</h2>
+        <div @click='linkTo("radio")'>radio单选框</div>
     </div>
 </template>
 <script>
@@ -26,6 +28,9 @@ export default {
                 };
                 case 'row':{
                     this.$router.push('/row')
+                };
+                case 'radio':{
+                    this.$router.push('/radio')
                 };
                 default:
                     break;
