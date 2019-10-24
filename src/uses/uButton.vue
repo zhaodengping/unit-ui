@@ -56,8 +56,8 @@
     </div>
 </template>
 <script>
-import uButton from '../views/buttons/buttons.vue'
-import uButtonGroup from '../views/buttons/button-group.vue'
+// import uButton from '../views/buttons/buttons.vue'
+// import uButtonGroup from '../views/buttons/button-group.vue'
 export default {
     data(){
         return{}
