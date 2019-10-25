@@ -1,3 +1,4 @@
+
 <template>
     <div class="btn">
         <h2>基础按钮</h2>
@@ -56,16 +57,10 @@
     </div>
 </template>
 <script>
-import uButton from '../views/buttons/components/buttons.vue'
-import uButtonGroup from '../views/buttons/components/button-group.vue'
 export default {
     data(){
         return{}
     },
-    components:{
-        uButton,
-        uButtonGroup
-    }
 }
 </script>
 <style lang="scss" scoped>

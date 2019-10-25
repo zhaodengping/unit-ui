@@ -1,11 +1,9 @@
 import Vue from 'vue'
 import App from './App.vue'
 import router from './routers/index.js'
-import bus from './assets/js/bus.js'
+import '../src/assets/js/components.js'
 
-Vue.prototype.$bus=bus
 new Vue({
-    
     el:'#app',
     router,
     components:{App},
