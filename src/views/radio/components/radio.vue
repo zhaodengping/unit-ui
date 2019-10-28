@@ -1,8 +1,8 @@
 <template>
     <label class="u-radio">
         <span class="u-radio_input">
-            <div class="u-radio_inner"></div>
-            <input type="radio" class="u-radio_original">
+            <span :class="['u-radio_inner',label==value?'is-checked':'']"></span>
+            <input type="radio" class="u-radio_original" @change='change'>
         </span>
         <span class="u-radio-label">
             <slot></slot>
@@ -11,28 +11,69 @@
 </template>
 <script>
 export default {
-    name:'uRadio'
+    name:'uRadio',
+    props:{
+        label:{
+            type:String,
+            default:''
+        },
+        value:{
+            type:String,
+            default:''
+        }
+    },
+    data(){
+        return{
+
+        }
+    },
+    model:{
+        prop:'value',
+        event:'change'
+    },
+    methods:{
+        change(e){
+            console.log(e)
+            this.$nextTick(()=>{
+                console.log(this.label)
+                this.$emit('change',this.label)
+            })
+        }
+    }
 }
 </script>
 <style lang="scss" scoped>
     .u-radio{
-        display: flex;;
         cursor: pointer;
         color: #606266;
         .u-radio_input{
-            display: inline-block;
+            vertical-align: middle;
+            line-height: 1;
             .u-radio_inner{
                 position: relative;
+                display: inline-block; 
                 width: 14px;
                 height: 14px;
                 border: 1px solid #606266;
                 border-radius: 100%;
+                box-sizing: border-box;
                 &::after{
+                    position: absolute;
+                    left: 50%;
+                    top: 50%;
+                    transform: translate(-50%,-50%);
+                    border-radius: 100%;
                     width: 4px;
                     height: 4px;
-                    content: ''
+                    content: ' ';
+                    background-color: #fff;
                 }
             };
+            .u-radio_inner.is-checked{
+                border-color: var(--theme-color);
+                background-color: var(--theme-color);
+                border-radius: 100%;
+            }
             .u-radio_original{
                 position: absolute;
                 opacity: 0;
