@@ -1,13 +1,21 @@
 <template>
-    <label class="u-radio" @click="change">
-        <span class="u-radio_input" >
-            <span :class="['u-radio_inner',label==value?'is-checked':'no-checked',disabled?'radio-disabled':'']"></span>
-            <input type="radio" class="u-radio_original">
-        </span>
-        <span :class="['u-radio-label',label==value?'text-checked':'',{'text-disabled':disabled}]">
-            <slot></slot>
-        </span>
-    </label>
+    <span class="radio">
+        <label class="u-radio" @click="change" v-if='!type'>
+            <span class="u-radio_input">
+                <span :class="['u-radio_inner',label==value?'is-checked':'no-checked',disabled?'radio-disabled':'']"></span>
+                <input type="radio" class="u-radio_original">
+            </span>
+            <span :class="['u-radio-label',label==value?'text-checked':'',{'text-disabled':disabled}]">
+                <slot></slot>
+            </span>
+        </label>
+        <!-- 按钮选择样式 -->
+        <label v-if='type=="button"'>
+            <span :class="['u-button',label==value?'is-checked':'no-checked']" @click="changeButton">
+                <slot></slot>
+            </span>
+        </label>
+    </span>
 </template>
 <script>
 export default {
@@ -23,6 +31,9 @@ export default {
         },
         disabled:{
             type:Boolean,
+        },
+        type:{
+            type:String,
         }
     },
     model:{
@@ -31,12 +42,17 @@ export default {
     },
     methods:{
         change(){
+            if(!this.disabled){
+                this.$emit('change',this.label)
+            }
+        },
+        changeButton(){
             this.$emit('change',this.label)
         }
     }
 }
 </script>
-<style lang="scss" scoped>
+<style lang="scss" scoped> 
     .u-radio{
         cursor: pointer;
         color: #606266;
@@ -102,7 +118,19 @@ export default {
             color: #e4e7ed
         }
     }
-    .u-radio+.u-radio{
-        margin-left: 10px
+    .u-button{
+        border-radius: 4px;
+        padding: 10px 14px;
+        cursor: pointer;
+        transition: all 0.3s ease-in
+    }
+    .u-button.is-checked{
+        background-color: var(--theme-color);
+        color: #fff;
+        border: 1px solid var(--theme-color)
+    }
+    .u-button.no-checked{
+        background-color: #fff;
+        border: 1px solid #dcdfe6
     }
 </style>
