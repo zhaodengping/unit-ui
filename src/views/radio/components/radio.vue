@@ -1,10 +1,10 @@
 <template>
-    <label class="u-radio">
-        <span class="u-radio_input">
-            <span :class="['u-radio_inner',label==value?'is-checked':'']"></span>
-            <input type="radio" class="u-radio_original" @change='change'>
+    <label class="u-radio" @click="change">
+        <span class="u-radio_input" >
+            <span :class="['u-radio_inner',label==value?'is-checked':'no-checked',disabled?'radio-disabled':'']"></span>
+            <input type="radio" class="u-radio_original">
         </span>
-        <span class="u-radio-label">
+        <span :class="['u-radio-label',label==value?'text-checked':'',{'text-disabled':disabled}]">
             <slot></slot>
         </span>
     </label>
@@ -20,11 +20,9 @@ export default {
         value:{
             type:String,
             default:''
-        }
-    },
-    data(){
-        return{
-
+        },
+        disabled:{
+            type:Boolean,
         }
     },
     model:{
@@ -32,12 +30,8 @@ export default {
         event:'change'
     },
     methods:{
-        change(e){
-            console.log(e)
-            this.$nextTick(()=>{
-                console.log(this.label)
-                this.$emit('change',this.label)
-            })
+        change(){
+            this.$emit('change',this.label)
         }
     }
 }
@@ -69,10 +63,25 @@ export default {
                     background-color: #fff;
                 }
             };
-            .u-radio_inner.is-checked{
+            .u-radio_inner.radio-disabled{
+                cursor:not-allowed;
+                border-color: #e4e7ed;
+                background-color: #f5f7fa;
+            }
+            .is-checked{
                 border-color: var(--theme-color);
                 background-color: var(--theme-color);
                 border-radius: 100%;
+            }
+            .is-checked.radio-disabled.u-radio_inner{
+                &::after{
+                    background-color: #c0c4cc
+                }
+            }
+            .no-checked.radio-disabled.u-radio_inner{
+                &::after{
+                    background-color: #f5f7fa
+                }
             }
             .u-radio_original{
                 position: absolute;
@@ -80,7 +89,20 @@ export default {
                 z-index: -1;
                 outline: none
             }
+        };
+        .u-radio-label{
+            margin-left: 5px;
+            color: #606266
         }
-        
+        .u-radio-label.text-checked{
+            color: var(--theme-color)   
+        }
+        .u-radio-label.text-disabled{
+            cursor:not-allowed;
+            color: #e4e7ed
+        }
+    }
+    .u-radio+.u-radio{
+        margin-left: 10px
     }
 </style>
