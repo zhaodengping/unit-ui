@@ -6,6 +6,7 @@
         <div @click='linkTo("button")'>button按钮</div>
         <h2>Form</h2>
         <div @click='linkTo("radio")'>radio单选框</div>
+        <div @click='linkTo("calendar")'>日期选择器</div>
     </div>
 </template>
 <script>
@@ -31,6 +32,9 @@ export default {
                 };
                 case 'radio':{
                     this.$router.push('/radio')
+                };
+                case 'calendar':{
+                    this.$router.push('/calendar')
                 };
                 default:
                     break;
